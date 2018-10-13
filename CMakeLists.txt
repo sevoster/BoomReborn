@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.1.0)
 
 project(BoomRebornQt LANGUAGES CXX)
 
@@ -8,6 +8,11 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
-add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
+set(SOURCES main.cpp)
+set(RESOURCES qml.qrc)
+
+add_executable(${PROJECT_NAME} ${SOURCES} ${RESOURCES})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick)
+
+add_subdirectory(components)
