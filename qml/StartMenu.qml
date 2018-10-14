@@ -10,7 +10,7 @@ ColumnLayout {
 
     spacing: 20
 
-    property int btnWidth: width / 3
+    property int btnWidth: width / 4
     property int contentAlignment: Qt.AlignCenter
     Text {
         Layout.alignment: contentAlignment
@@ -19,7 +19,7 @@ ColumnLayout {
         Layout.bottomMargin: parent.height / 6
         text: "Boom Reborn"
         font.family: "Helvetica"
-        font.pointSize: parent.width / 20
+        font.pointSize: 40
         color: "red"
     }
     Button {
