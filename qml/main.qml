@@ -8,5 +8,7 @@ Window {
     title: qsTr("Boom Reborn")
     StartMenu {
         anchors.fill: parent
+        onExit: close()
+        onStartNewGame: console.log("Start new game...")
     }
 }

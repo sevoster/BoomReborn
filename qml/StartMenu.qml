@@ -1,16 +1,45 @@
 import QtQuick 2.9
-import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
 
-Column {
+ColumnLayout {
+    id: startMenu
+
+    signal startNewGame();
+    signal exit();
+
+    spacing: 20
+
+    property int btnWidth: width / 3
+    property int contentAlignment: Qt.AlignCenter
     Text {
-        anchors.horizontalCenter: parent.horizontalCenter
+        Layout.alignment: contentAlignment
+        // TODO: margins should be redesigned
+        Layout.topMargin: parent.height / 4
+        Layout.bottomMargin: parent.height / 6
         text: "Boom Reborn"
         font.family: "Helvetica"
-        font.pointSize: 28
+        font.pointSize: parent.width / 20
         color: "red"
     }
     Button {
-        anchors.horizontalCenter: parent.horizontalCenter
+        Layout.alignment: contentAlignment
+        Layout.preferredWidth: btnWidth
         text: "Start New Game"
+        onClicked: startMenu.startNewGame()
+    }
+    Button {
+        Layout.alignment: contentAlignment
+        Layout.preferredWidth: btnWidth
+        text: "Settings"
+    }
+    Button {
+        Layout.alignment: contentAlignment
+        Layout.preferredWidth: btnWidth
+        text: "Exit"
+        onClicked: startMenu.exit()
+    }
+    Item {
+        Layout.fillHeight: true
     }
 }
