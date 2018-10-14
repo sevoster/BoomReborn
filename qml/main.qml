@@ -5,5 +5,8 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("Boom Reborn")
+    StartMenu {
+        anchors.fill: parent
+    }
 }
