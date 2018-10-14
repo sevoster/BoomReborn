@@ -10,32 +10,32 @@ ColumnLayout {
 
     spacing: 20
 
-    property int btnWidth: width / 4
+    property int btnWidth: startMenu.width / 4
+    property int btnMinWidth: 120
     property int contentAlignment: Qt.AlignCenter
-    Text {
+    MenuLogo {
         Layout.alignment: contentAlignment
         // TODO: margins should be redesigned
-        Layout.topMargin: parent.height / 4
-        Layout.bottomMargin: parent.height / 6
-        text: "Boom Reborn"
-        font.family: "Helvetica"
-        font.pointSize: 40
-        color: "red"
+        Layout.topMargin: startMenu.height / 4
+        Layout.bottomMargin: startMenu.height / 6
     }
-    Button {
+    MenuButton {
         Layout.alignment: contentAlignment
-        Layout.preferredWidth: btnWidth
+        Layout.preferredWidth: startMenu.btnWidth
+        Layout.minimumWidth: startMenu.btnMinWidth
         text: "Start New Game"
         onClicked: startMenu.startNewGame()
     }
-    Button {
+    MenuButton {
         Layout.alignment: contentAlignment
-        Layout.preferredWidth: btnWidth
+        Layout.preferredWidth: startMenu.btnWidth
+        Layout.minimumWidth: startMenu.btnMinWidth
         text: "Settings"
     }
-    Button {
-        Layout.alignment: contentAlignment
-        Layout.preferredWidth: btnWidth
+    MenuButton {
+        Layout.alignment: startMenu.contentAlignment
+        Layout.preferredWidth: startMenu.btnWidth
+        Layout.minimumWidth: startMenu.btnMinWidth
         text: "Exit"
         onClicked: startMenu.exit()
     }
