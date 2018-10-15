@@ -43,8 +43,13 @@ Item {
             }
         }
     ]
+    state: "start"
 
-    Keys.onEscapePressed: state = state === "game" ? "pause" : "game"
+    Keys.onEscapePressed: {
+        if (state === "start")
+            return
+        state = state === "game" ? "pause" : "game"
+    }
 
     StartMenu {
         id: startMenu
