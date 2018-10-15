@@ -6,10 +6,11 @@ Item {
 
     states: [
         State {
-            name: "Menu"
+            name: "start"
             PropertyChanges {
                 target: startMenu
                 visible: true
+                state: "start"
             }
             PropertyChanges {
                 target: gameView
@@ -17,20 +18,31 @@ Item {
             }
         },
         State {
-            name: "Game"
-            PropertyChanges {
-                target: gameView
-                visible: true
-            }
+            name: "game"
             PropertyChanges {
                 target: startMenu
                 visible: false
             }
+            PropertyChanges {
+                target: gameView
+                visible: true
+            }
+        },
+        State {
+            name: "pause"
+            PropertyChanges {
+                target: startMenu
+                visible: true
+                state: "pause"
+            }
+            PropertyChanges {
+                target: gameView
+                visible: false
+            }
         }
     ]
-    state: "Menu"
 
-    Keys.onEscapePressed: state = state === "Game" ? "Menu" : "Game"
+    Keys.onEscapePressed: state = state === "game" ? "pause" : "game"
 
     StartMenu {
         id: startMenu
@@ -38,12 +50,18 @@ Item {
         onExit: close()
         onStartNewGame: {
             console.log("Start new game...")
-            mainWidget.state = "Game"
+            mainWidget.state = "game"
+            // GameView start new game
+        }
+        onContinueGame: {
+            console.log("Continue game...")
+            mainWidget.state = "game"
         }
     }
 
     GameView {
         id: gameView
         anchors.fill: parent
+        visible: false
     }
 }

@@ -5,20 +5,48 @@ import QtQuick.Controls 2.2
 ColumnLayout {
     id: startMenu
 
+    states: [
+        State {
+            name: "start"
+            PropertyChanges {
+                target: continueBtn
+                visible: false
+            }
+        },
+        State {
+            name: "pause"
+            PropertyChanges {
+                target: continueBtn
+                visible: true
+            }
+        }
+    ]
+    state: "start"
+
+    signal continueGame();
     signal startNewGame();
     signal exit();
 
-    spacing: 20
+    spacing: 10
 
-    property int btnWidth: startMenu.width / 4
-    property int btnMinWidth: 120
-    property int contentAlignment: Qt.AlignCenter
+    readonly property int btnWidth: startMenu.width / 4
+    readonly property int btnMinWidth: 120
+    readonly property int contentAlignment: Qt.AlignCenter
     MenuLogo {
         Layout.alignment: contentAlignment
         // TODO: margins should be redesigned
         Layout.topMargin: startMenu.height / 4
         Layout.bottomMargin: startMenu.height / 6
     }
+    MenuButton {
+        id: continueBtn
+        Layout.alignment: contentAlignment
+        Layout.preferredWidth: startMenu.btnWidth
+        Layout.minimumWidth: startMenu.btnMinWidth
+        text: "Continue"
+        onClicked: startMenu.continueGame()
+    }
+
     MenuButton {
         Layout.alignment: contentAlignment
         Layout.preferredWidth: startMenu.btnWidth
