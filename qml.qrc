@@ -1,10 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/main.qml</file>
-        <file>qml/StartMenu.qml</file>
-        <file>qml/MenuButton.qml</file>
-        <file>qml/MenuLogo.qml</file>
         <file>qml/GameView.qml</file>
         <file>qml/MainWidget.qml</file>
+        <file>qml/menu/MenuButton.qml</file>
+        <file>qml/menu/MenuLogo.qml</file>
+        <file>qml/menu/StartMenu.qml</file>
+        <file>qml/menu/qmldir</file>
     </qresource>
 </RCC>

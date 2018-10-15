@@ -1,5 +1,7 @@
 import QtQuick 2.0
 
+import "menu"
+
 Item {
     id: mainWidget
     focus: true
