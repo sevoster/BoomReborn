@@ -4,5 +4,7 @@
         <file>qml/StartMenu.qml</file>
         <file>qml/MenuButton.qml</file>
         <file>qml/MenuLogo.qml</file>
+        <file>qml/GameView.qml</file>
+        <file>qml/MainWidget.qml</file>
     </qresource>
 </RCC>
