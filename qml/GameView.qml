@@ -1,26 +1,32 @@
 import QtQuick 2.0
 
-
 Item {
+    Item {
+        Text {
+            text: "Score: ---"
+        }
+    }
+
     Grid {
         id: gameField
 
-        width: startMenu.width - 20
-        height: startMenu.height - 10
-        x: 0
-        y: 0
+        property double widthIndent: 1.2
+        property double heightIndent: 1.3
+        width: startMenu.width / widthIndent
+        height: startMenu.height / heightIndent
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
         columns: 20
         rows: 10
         spacing: 1
 
+
         Repeater {
             model: gameField.rows * gameField.columns
 
-            Rectangle {
-                color: "red"
-                width: if(gameField.width > 2 * gameField.height) {gameField.height/10} else {gameField.width/20}
-                height: if(gameField.width > 2 * gameField.height) {gameField.height/10} else {gameField.width/20}
-            }
+            delegate: Block {}
         }
 
 }
