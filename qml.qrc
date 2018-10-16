@@ -7,5 +7,6 @@
         <file>qml/menu/MenuLogo.qml</file>
         <file>qml/menu/StartMenu.qml</file>
         <file>qml/menu/qmldir</file>
+        <file>qml/Block.qml</file>
     </qresource>
 </RCC>
