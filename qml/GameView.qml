@@ -1,33 +1,32 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.3
 
-Item {
-    Item {
-        Text {
-            text: "Score: ---"
-        }
+ColumnLayout {
+    id: _gameView
+
+    Text {
+        Layout.alignment: Qt.AlignLeft
+        text: "Score: ---"
     }
 
-    Grid {
+    GridLayout {
         id: gameField
 
-        property double widthIndent: 1.2
-        property double heightIndent: 1.3
-        width: startMenu.width / widthIndent
-        height: startMenu.height / heightIndent
-
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        Layout.alignment: Qt.AlignCenter
+        Layout.margins: 20
 
         columns: 20
         rows: 10
-        spacing: 1
-
+        columnSpacing: 1
+        rowSpacing: 1
 
         Repeater {
             model: gameField.rows * gameField.columns
 
-            delegate: Block {}
+            delegate: Block {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
         }
-
-}
+    }
 }
