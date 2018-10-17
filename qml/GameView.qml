@@ -15,9 +15,6 @@ ColumnLayout {
         Layout.alignment: Qt.AlignCenter
         Layout.margins: 20
 
-        property double widthIndent: 1.2
-        property double heightIndent: 1.3
-
         columns: 20
         rows: 10
         columnSpacing: 1
