@@ -14,5 +14,6 @@ set(RESOURCES qml.qrc)
 add_executable(${PROJECT_NAME} ${SOURCES} ${RESOURCES})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick)
+target_link_libraries(${PROJECT_NAME} data_model)
 
 add_subdirectory(components)

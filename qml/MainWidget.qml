@@ -5,6 +5,7 @@ import "menu"
 Item {
     id: mainWidget
     focus: true
+    property alias gameFieldModel: gameView.gameFieldModel
 
     states: [
         State {

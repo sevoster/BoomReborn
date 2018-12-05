@@ -9,5 +9,6 @@ ApplicationWindow {
 
     MainWidget {
         anchors.fill: parent
+        gameFieldModel: dataModel
     }
 }

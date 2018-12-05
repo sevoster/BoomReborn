@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 
 ColumnLayout {
     id: _gameView
+    property var gameFieldModel: null
 
     Text {
         Layout.alignment: Qt.AlignLeft
@@ -15,13 +16,13 @@ ColumnLayout {
         Layout.alignment: Qt.AlignCenter
         Layout.margins: 20
 
-        columns: 20
-        rows: 10
+        columns: gameFieldModel.columnCount()
+        rows: gameFieldModel.rowCount()
         columnSpacing: 1
         rowSpacing: 1
 
         Repeater {
-            model: gameField.rows
+            model: dataModel
 
             Repeater {
                 property int rowIndex: index
@@ -30,18 +31,9 @@ ColumnLayout {
                 delegate: Block {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    // magic of field generation
-                    color: getColor(rowIndex, index, gameField.rows, gameField.columns)
+                    color: gameFieldModel.getColor(rowIndex, index)
                 }
             }
         }
-    }
-
-    function getColor(row, column, rows, columns)
-    {
-        if (row === 0 || row === rows - 1 || column === 0 || column === columns - 1)
-            return "black"
-        if ((Math.random() * 100) % 2 < 1) return "grey"
-        return "white"
     }
 }
